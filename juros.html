@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Calculadora de juros</title>
+</head>
+<body>
+<h1>Calculadora de juros</h1>
+<div id="tab">
+
+</div>
+<input type=“number” id=“prodValor” placeholder=“Digite o preço do produto”>
+<button onclick="calculo()">Calcular</button>
+<script>
+let tab = document.getElementById("tab")
+function calculo(){
+let texto = "";
+let preco = document.getElementById(“prodValor”).value;
+let taxas = [0, 6.76, 8.44, 10.23, 11.93, 13.58, 15.01, 16.90, 18.86, 20.07, 21.92, 23.75];
+for(let i = 0; i < taxas.length; i++){
+let valorFinal = preco + (preco * taxas[i] / 100);
+let parcela = valorFinal/(i+1);
+texto += `${i+1}x de ${parcela.toFixed(2)} = ${valorFinal.toFixed(2)}<br>`;
+};
+tab.innerHTML = texto;
+};
+</script>
+</body>
+</html>
